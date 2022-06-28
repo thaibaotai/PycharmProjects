@@ -1,7 +1,7 @@
 import sys
 
 available_formatters = ['plain', 'bold', 'italic', 'header', 'link', 'inline-code',
-                        'new-line']
+                        'new-line', 'ordered-list', 'unordered-list']
 special_commands = ['!help', '!done']
 output = ''
 formatter = ''
@@ -38,6 +38,8 @@ def format_text():
     if formatter == 'new-line': return new_line()
     if formatter == 'link': return link()
     if formatter == 'inline-code': return inline_code()
+    if formatter == 'ordered-list': return ordered_list(1)
+    if formatter == 'unordered-list': return ordered_list(0)
 
 
 def header():
@@ -81,6 +83,22 @@ def link():
 def inline_code():
     text = input('Text: ')
     return '`' + text + '`'
+
+
+def ordered_list(_type):
+    text_list = []
+    rows = int(input('Number of rows: '))
+    while rows <= 0:
+        print('The number of rows should be greater than zero')
+        rows = int(input('Number of rows: '))
+    for i in range(rows):
+        text_list.append(input(f'Row #{i + 1}: '))
+    if _type:
+        prefix = [f'{x + 1}. ' for x in range(rows)]
+    else:
+        prefix = [f'* ' for _ in range(rows)]
+    output_list = list(map(lambda x, y: x + y, prefix, text_list))
+    return '\n'.join(output_list) + '\n'
 
 
 while True:
