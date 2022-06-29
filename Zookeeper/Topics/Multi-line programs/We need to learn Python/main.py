@@ -1,0 +1,5 @@
+print('we need'.upper())
+print()
+print('to learn python'.upper())
+print()
+print('as quickly as possible'.upper())
