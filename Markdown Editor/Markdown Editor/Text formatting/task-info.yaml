@@ -3,7 +3,30 @@ files:
 - name: editor.py
   visible: true
   text: |
-    # write your code here
+    import sys
+
+    available_formatters = ['plain', 'bold', 'italic', 'header', 'link', 'inline-code',
+                            'ordered-list', 'unordered-list', 'new-line']
+    special_commands = ['!help', '!done']
+
+
+    def help():
+        print('Available formatters: ' + ' '.join(available_formatters))
+        print('Special commands: ' + ' '.join(special_commands))
+
+
+    def done():
+        sys.exit()
+
+
+    while True:
+        formatter = input('Choose a formatter: ')
+        if formatter not in available_formatters + special_commands:
+            print('Unknown formatting type or command')
+        if formatter == '!help':
+            help()
+        if formatter == '!done':
+            done()
   learner_created: false
 - name: tests.py
   visible: false
@@ -184,7 +207,4 @@ files:
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/12315#comment
 status: Solved
-feedback:
-  message: Congratulations!
-  time: Sat, 25 Jun 2022 17:29:40 UTC
 record: 3

@@ -3,8 +3,17 @@ custom_name: How do I use it?
 files:
 - name: editor.py
   visible: true
-  text: |
-    # write your code here
+  text: |-
+    snippet = '''# John Lennon
+
+    or ***John Winston Ono Lennon*** was one of *The Beatles*.
+    Here are the songs he wrote I like the most:
+    - Imagine
+    - Norwegian Wood
+    - Come Together
+    - In My Life
+    - ~~Hey Jude~~ (that was *McCartney*)'''
+    print(snippet)
   learner_created: false
 - name: tests.py
   visible: false
@@ -122,7 +131,4 @@ files:
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/12314#comment
 status: Solved
-feedback:
-  message: Congratulations!
-  time: Sat, 25 Jun 2022 07:32:20 UTC
 record: 2
