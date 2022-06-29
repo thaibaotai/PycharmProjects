@@ -13,6 +13,8 @@ def help_print():
 
 
 def done():
+    with open('output.md', 'w') as op:
+        op.write(output)
     sys.exit()
 
 
